@@ -46,6 +46,8 @@
         //4
         createPlatform(125, 350, 0.6);
         //5
+        createPlatform(595, 270, 0.6);
+        //6
         createPlatform(50 ,100, 0.6);// top
         
         // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////
