@@ -38,15 +38,17 @@
 
         // example:
         //1
-        createPlatform(150, 575, 0.6); //start
+        createPlatform(450, 575, 0.6); //start
         //2
-        createPlatform(300, 500, 0.6);
+        createPlatform(50, 500, 0.8);
         //3
          createPlatform(550, 425, 0.6);
         //4
-        createPlatform(125, 350, 0.6);
+        createPlatform(150, 350, 0.6);
         //5
-        createPlatform(595, 270, 0.6);
+        createPlatform(550, 270, 0.6);
+        //6
+        createPlatform(300,175, 0.6 );
         //6
         createPlatform(50 ,100, 0.6);// top
         
