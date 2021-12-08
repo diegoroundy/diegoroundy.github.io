@@ -9,9 +9,11 @@
         max: {assetKey: 'max', points: 20},
         steve: {assetKey: 'steve', points: 30},
         grace: {assetKey: 'grace', points: 40},
-        kennedi: {assetKey: 'kennedi', points: 50}
+        kennedi: {assetKey: 'kennedi', points: 50},
+        coin1: {assetKey: 'coin1', points: 15}
     };
     
+
     /**
      * init: Initialize all collectables.
      * 
@@ -37,8 +39,9 @@
         // ALL YOUR CODE GOES BELOW HERE ///////////////////////////////////////
         
         // example: 
-        createCollectable(type.db, 200, 300, 0.9);
-        createCollectable(type.db, 150, 50, 0.9);
+        createCollectable(type.coin1, 200, 280, 0.9);
+        createCollectable(type.coin1, 110, 40, 0.9);
+        createCollectable(type.coin1, 650, 200, 0.9);
         
         
         
