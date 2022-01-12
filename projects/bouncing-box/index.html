@@ -16,8 +16,10 @@
 			top: 100px;
 			left: 100px;  /* <--- Change me! */
 		}
-		.board{
-			height: 100vh;
+		body{
+			background-image:url("images/sddefault.png");
+			background-color: #cccccc;
+			height: 100;
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -111,9 +113,13 @@
 
 				points = points + 1;
 				changeBoxText(points);
-				speed = speed + 3;
 				speedY = speedY + 3;
-
+				if (speed >=0 ){
+					speed = speed +3;
+				}
+				else if (speed < 0){
+					speed = speed -3;
+				}
 			
 			};
 		})();
