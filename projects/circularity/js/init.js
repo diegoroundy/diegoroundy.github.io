@@ -88,7 +88,7 @@ function (window) {
             // TODO 9 : Iterate over the array
             for (var c = 0; c < circles.length; c++){
                 var eachCircle = circles[c];
-                phyziks.updateposition(eachCircle);
+                physikz.updatePosition(eachCircle);
                 game.checkCirclePosition(eachCircle);
             }
        
