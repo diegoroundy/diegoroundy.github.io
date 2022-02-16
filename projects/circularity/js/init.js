@@ -57,7 +57,7 @@ function (window) {
 
         // TODO 3 / 8 : Call the drawCircle() function
         //
-        for ( var i = 0; i <= 100; i++){
+        for ( var i = 0; i <= 100; i++){ // this array draw 100 circles
             drawCircle();
         }
         ////////////////////////////////////////////////////////////
@@ -86,7 +86,7 @@ function (window) {
             A loop was used to affect all 100 circles, the code above only affects the first 5. thus, we dont need the code.
             */
             // TODO 9 : Iterate over the array
-            for (var c = 0; c < circles.length; c++){
+            for (var c = 0; c < circles.length; c++){ // a loop was created to iterate over the array that draws 100 circles, making them all move.
                 var eachCircle = circles[c];
                 physikz.updatePosition(eachCircle);
                 game.checkCirclePosition(eachCircle);
