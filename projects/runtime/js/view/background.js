@@ -55,7 +55,14 @@ var background = function (window) {
             background.addChild(moon); // adds the moon to the canvas so we can see it
             
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            
+            for(var i = 0; i < 5; ++i) {  // a for loop is used to draw 5 buildings
+                    var buildingHeight = 300; // the variable buildingHeight is declared and is assigned to the height of the building
+                    var building = draw.rect(75,buildingHeight,'LightGray','Black',1); // the variable building is declared and it is assigned to the code for the buildings such as height and color.
+                    building.x = 200 * i; // the x position of the building is 200 multiplied by i.
+                    building.y = groundY - buildingHeight; // the y position of the building is groundY subtracted by the height.
+                    background.addChild(building); // the code for the building is added to the background
+                    buildings.push(building); // the buildings are pushed to the canvas so they can be seen.
+            }
             
             // TODO 4: Part 1 - Add a tree
             tree = draw.bitmap('img/tree.png'); // the variable tree is declared and it stores the image of the tree 
