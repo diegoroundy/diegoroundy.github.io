@@ -37,7 +37,7 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth,groundY,'black');
+            var backgroundFill = draw.rect(canvasWidth,groundY,'gray');
             background.addChild(backgroundFill);
             
             // TODO: 3 - Add a moon and starfield
@@ -55,13 +55,13 @@ var background = function (window) {
             background.addChild(moon); // adds the moon to the canvas so we can see it
             
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            for(var i = 0; i < 5; ++i) {  // a for loop is used to draw 5 buildings
-                    var buildingHeight = 300; // the variable buildingHeight is declared and is assigned to the height of the building
+            for(var i = 0; i < 10; i++) {  // a for loop is used to draw 5 buildings
+                    var buildingHeight = 300; // the variable buildingHeight is declared and is assigned to the height of the building in pixels
                     var building = draw.rect(75,buildingHeight,'LightGray','Black',1); // the variable building is declared and it is assigned to the code for the buildings such as height and color.
-                    building.x = 200 * i; // the x position of the building is 200 multiplied by i.
+                    building.x = 200 * i; // positions the x of each building 200 pixels from the next.
                     building.y = groundY - buildingHeight; // the y position of the building is groundY subtracted by the height.
-                    background.addChild(building); // the code for the building is added to the background
-                    buildings.push(building); // the buildings are pushed to the canvas so they can be seen.
+                    background.addChild(building); // the building is added to the background so it can be seen
+                    buildings.push(building); // the buildings are pushed to the array
             }
             
             // TODO 4: Part 1 - Add a tree
@@ -91,7 +91,14 @@ var background = function (window) {
             }
             
             // TODO 5: Part 2 - Parallax
-            
+            // loops the buildings and moves them to the left by .5 pixels
+           for (var i = 0; i < buildings.length; i++){
+               buildings[i].x = buildings[i].x - 0.5; // moves buildings x position by .5 pixels
+                if(buildings[i].x < 0) { // checks to see if the buildings x pos is off the left side and if it is it resets 
+                    buildings[i].x = canvasWidth;
+                }
+           }
+
 
         } // end of update function - DO NOT DELETE
         
