@@ -30,13 +30,13 @@ var level01 = function (window) {
 
         function createSawBlade(){
             var hitZoneSize = 25; // creates the size of the hitzone
-        var damageFromObstacle = 10; // sets the damage of the obstacle 
-        var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle); // creates the hotzone and stores it in 
-        sawBladeHitZone.x = x; // the x position of the hitzone
-        sawBladeHitZone.y = y; // the y pos of the hitzone
-        game.addGameItem(sawBladeHitZone);  // add the hitzone to the game   
+            var damageFromObstacle = 10; // sets the damage of the obstacle 
+            var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle); // creates the hitzone and stores it in sawBladeHitZone variable (Saw blade obstacle)
+            sawBladeHitZone.x = 400; // the x position of the hitzone
+            sawBladeHitZone.y = 100; // the y pos of the hitzone
+            game.addGameItem(sawBladeHitZone);  // add the hitzone to the game   
         
-        var obstacleImage = draw.bitmap('img/sawblade.png'); // drawing the image and storing it 
+        var obstacleImage = draw.bitmap('img/sawblade.png'); // drawing the image and storing it in the obstacleImage variable
         sawBladeHitZone.addChild(obstacleImage); // adding the image to the hitzone so we can see it 
         obstacleImage.x = -25; // tweaks the image 25 pixels to the left
         obstacleImage.y = -25; // tweaks the image 25 pixels up
