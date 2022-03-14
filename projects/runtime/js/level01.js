@@ -40,11 +40,43 @@ var level01 = function (window) {
         sawBladeHitZone.addChild(obstacleImage); // adding the image to the hitzone so we can see it 
         obstacleImage.x = -25; // tweaks the image 25 pixels to the left
         obstacleImage.y = -25; // tweaks the image 25 pixels up
+        sawBladeHitZone.rotationalVelocity = 10;
         }
         createSawBlade(400, 345);
         createSawBlade(600, 345);
         createSawBlade(800, 345);
 
+        function createEnemy(x, y){
+            var enemy = game.createGameItem('enemy',25); // creating the game enemy and storing it in the variable enemy
+        var redSquare = draw.rect(50,50,'red'); // creates triangle and stores as redSquare
+        redSquare.x = -25;
+        redSquare.y = -25;
+        enemy.addChild(redSquare); // add the red square to the enemy game item
+
+        enemy.x = x;
+        enemy.y = y;
+
+        game.addGameItem(enemy); // adds enemy to the game
+
+        enemy.velocityX = -1; // causes the enemy to move 1 pixel to the left on the x position
+      
+        enemy.rotationalVelocity = 25;
+
+        enemy.onPlayerCollision = function() {
+            console.log('The enemy has hit Halle');
+            game.changeIntegrity(-10);
+        };
+
+         enemy.onProjectileCollision = function() {
+            console.log('The projectile has hit Halle');
+            game.changeIntegrity(5);
+            game.increaseScore(5);
+            enemy.fadeOut();
+        };
+        }
+        createEnemy(100, 200);
+        createEnemy(300, 350);
+        createEnemy(150, 200);
         // DO NOT EDIT CODE BELOW HERE
     }
 };
