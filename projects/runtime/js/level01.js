@@ -21,12 +21,12 @@ var level01 = function (window) {
                 { "type": "sawblade", "x": 900, "y": groundY - 50},
 
                 { "type": "enemy", "x": 450, "y": groundY - 50 },
-                { "type": "enemy", "x": 500, "y": groundY - 50 },
-                { "type": "enemy", "x": 900, "y": groundY  - 50},
+                { "type": "enemy", "x": 300, "y": groundY - 50 },
+                { "type": "enemy", "x": 700, "y": groundY  - 50},
 
-                { "type": "reward", "x": 400, "y": groundY - 50 },
-                { "type": "reward", "x": 600, "y": groundY - 50},
-                { "type": "reward", "x": 900, "y": groundY- 50 },
+                { "type": "reward", "x": 500, "y": groundY - 50 },
+                { "type": "reward", "x": 800, "y": groundY - 50},
+                { "type": "reward", "x": 1000, "y": groundY- 50 },
             ]
         };
         window.levelData = levelData;
