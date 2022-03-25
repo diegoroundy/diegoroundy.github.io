@@ -55,62 +55,62 @@ var level01 = function (window) {
         function createReward(x, y){
             var reward = game.createGameItem('reward',25); // creating the game reward and storing it in the variable reward
             var blueSquare = draw.rect(50,50,'blue'); // creates triangle and stores as redSquare
-            blueSquare.x = -25;
-            blueSquare.y = -25;
+            blueSquare.x = -25; // sets the x position of the reward to -25 pixels.
+            blueSquare.y = -25; // sets the y position of the reward to -25 pixels.
             reward.addChild(blueSquare); // add the red square to the reward game item
 
-            reward.x = x;
-            reward.y = y;
+            reward.x = x; // sets the x pos of the reward to x
+            reward.y = y; // sets the y pos of the reward to y
 
             game.addGameItem(reward); // adds reward to the game
 
             reward.velocityX = -1; // causes the reward to move 1 pixel to the left on the x position
       
-            reward.rotationalVelocity = 25;
+            reward.rotationalVelocity = 25; // sets the rotating speed of the reward to 25.
 
-        reward.onPlayerCollision = function() {
-            console.log('The reward has hit Halle');
-            game.changeIntegrity(10);
-            game.increaseScore(5);
+        reward.onPlayerCollision = function() { // creates a function in which the reward will collide with the player.
+            console.log('The reward has hit Halle'); // the console will log this message as sson as the reward collides with the player
+            game.changeIntegrity(10); // the collision will add 10 health 
+            game.increaseScore(5); // the collision will add 5 points.
         };
 
-        reward.onProjectileCollision = function() {
-            console.log('The projectile has hit Halle');
-            game.changeIntegrity(5);
-            game.increaseScore(5);
-            reward.fadeOut();
+        reward.onProjectileCollision = function() { // this function will do something after the players projectile hits the reward.
+            console.log('The projectile has hit Halle'); // the console will print this message after the projectile collides with the reward.
+            game.changeIntegrity(5); // increases health by 5.
+            game.increaseScore(5); // increases score by 5.
+            reward.fadeOut(); // the reward will fade out upon collision.
         };
         }
         function createEnemy(x, y){
             var enemy = game.createGameItem('enemy',25); // creating the game enemy and storing it in the variable enemy
             var redSquare = draw.rect(25,25,'red'); // creates triangle and stores as redSquare
-            redSquare.x = -25;
-            redSquare.y = -25;
+            redSquare.x = -25; // the x position for the enemy is set to -25 pixels
+            redSquare.y = -25; // the y position for the enemy is set to -25 pixels
             enemy.addChild(redSquare); // add the red square to the enemy game item
 
-            enemy.x = x;
-            enemy.y = y;
+            enemy.x = x; // x pos of enemy is set to x
+            enemy.y = y; // y pos of enemy is set to y
 
             game.addGameItem(enemy); // adds enemy to the game
 
             enemy.velocityX = -1; // causes the enemy to move 1 pixel to the left on the x position
       
-            redSquare.rotationalVelocity = 25;
+            redSquare.rotationalVelocity = 25; // rotating speed of the enemy is set to 25
 
-            enemy.onPlayerCollision = function() {
-                console.log('The enemy has hit Halle');
-                game.changeIntegrity(-10);
+            enemy.onPlayerCollision = function() { // function that will do something after the enemy collides with the player
+                console.log('The enemy has hit Halle'); // the console will print this message after the enemy hits the player
+                game.changeIntegrity(-10); // the player loses 10 health upon collision
                 
         };
 
-            enemy.onProjectileCollision = function() {
-                console.log('The projectile has hit Halle');
-                game.changeIntegrity(5);
-                game.increaseScore(5);
-                enemy.fadeOut();
+            enemy.onProjectileCollision = function() { // function that will do something after a projectile hits the enemy
+                console.log('The projectile has hit Halle'); // the console will print this message upon collision
+                game.changeIntegrity(5); // the player gains 5 health upon collision
+                game.increaseScore(5); // score will increase by 5 upon collision
+                enemy.fadeOut(); // enemy will fade out upon collison 
         };
         }
-        for (var i = 0; i < levelData.gameItems.length; i++){
+        for (var i = 0; i < levelData.gameItems.length; i++){ // 
                var gameItem = levelData.gameItems[i];
         
 
