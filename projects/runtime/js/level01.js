@@ -37,7 +37,7 @@ var level01 = function (window) {
         // BEGIN EDITING YOUR CODE HERE
 
         function createSawBlade(x, y){
-            var hitZoneSize = 25; // creates the size of the hitzone
+            var hitZoneSize = 21; // creates the size of the hitzone
             var damageFromObstacle = 10; // sets the damage of the obstacle 
             var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle); // creates the hitzone and stores it in sawBladeHitZone variable (Saw blade obstacle)
             sawBladeHitZone.x = x; // the x position of the hitzone
@@ -83,7 +83,7 @@ var level01 = function (window) {
         }
         function createEnemy(x, y){
             var enemy = game.createGameItem('enemy',25); // creating the game enemy and storing it in the variable enemy
-            var redSquare = draw.rect(25,25,'red'); // creates triangle and stores as redSquare
+            var redSquare = draw.rect(50,50,'red'); // creates triangle and stores as redSquare
             redSquare.x = -25; // the x position for the enemy is set to -25 pixels
             redSquare.y = -25; // the y position for the enemy is set to -25 pixels
             enemy.addChild(redSquare); // add the red square to the enemy game item
@@ -95,7 +95,7 @@ var level01 = function (window) {
 
             enemy.velocityX = -1; // causes the enemy to move 1 pixel to the left on the x position
       
-            redSquare.rotationalVelocity = 25; // rotating speed of the enemy is set to 25
+            enemy.rotationalVelocity = 20; // rotating speed of the enemy is set to 25
 
             enemy.onPlayerCollision = function() { // function that will do something after the enemy collides with the player
                 console.log('The enemy has hit Halle'); // the console will print this message after the enemy hits the player
@@ -110,11 +110,11 @@ var level01 = function (window) {
                 enemy.fadeOut(); // enemy will fade out upon collison 
         };
         }
-        for (var i = 0; i < levelData.gameItems.length; i++){ // 
+        for (var i = 0; i < levelData.gameItems.length; i++){ 
                var gameItem = levelData.gameItems[i];
         
 
-            if (gameItem.type === "sawBlade"){
+            if (gameItem.type === "sawblade"){
                     createSawBlade(gameItem.x, gameItem.y);
             }
             if (gameItem.type === "enemy"){
