@@ -16,11 +16,14 @@ var level01 = function (window) {
             "number": 1, 
             "speed": -3,
             "gameItems": [
-                { "type": "sawblade", "x": 400, "y": groundY - 50 },
-                { "type": "sawblade", "x": 600, "y": groundY - 50 },
-                { "type": "sawblade", "x": 900, "y": groundY - 50},
+                { "type": "sawblade", "x": 300, "y": groundY - 110 }, // front 
+                { "type": "sawblade", "x": 800, "y": groundY - 25 }, 
+                { "type": "sawblade", "x": 1200, "y": groundY - 110 }, 
+                { "type": "sawblade", "x": 1600, "y": groundY - 25 }, 
+                { "type": "sawblade", "x": 1900, "y": groundY - 110 },
+                { "type": "sawblade", "x": 2300, "y": groundY - 25}, // back
 
-                { "type": "enemy", "x": 450, "y": groundY - 50 },
+                { "type": "enemy", "x": 450, "y": groundY - 50 }, // front
                 { "type": "enemy", "x": 300, "y": groundY - 50 },
                 { "type": "enemy", "x": 700, "y": groundY  - 50},
 
@@ -54,10 +57,10 @@ var level01 = function (window) {
 
         function createReward(x, y){
             var reward = game.createGameItem('reward',25); // creating the game reward and storing it in the variable reward
-            var blueSquare = draw.rect(50,50,'blue'); // creates triangle and stores as redSquare
+            var blueSquare = draw.bitmap('img/goldenapple.png');
             blueSquare.x = -25; // sets the x position of the reward to -25 pixels.
             blueSquare.y = -25; // sets the y position of the reward to -25 pixels.
-            reward.addChild(blueSquare); // add the red square to the reward game item
+            reward.addChild(blueSquare); // add the blue square to the reward game item
 
             reward.x = x; // sets the x pos of the reward to x
             reward.y = y; // sets the y pos of the reward to y
@@ -66,7 +69,7 @@ var level01 = function (window) {
 
             reward.velocityX = -1; // causes the reward to move 1 pixel to the left on the x position
       
-            reward.rotationalVelocity = 25; // sets the rotating speed of the reward to 25.
+            
 
         reward.onPlayerCollision = function() { // creates a function in which the reward will collide with the player.
             console.log('The reward has hit Halle'); // the console will log this message as sson as the reward collides with the player
@@ -83,7 +86,7 @@ var level01 = function (window) {
         }
         function createEnemy(x, y){
             var enemy = game.createGameItem('enemy',25); // creating the game enemy and storing it in the variable enemy
-            var redSquare = draw.rect(50,50,'red'); // creates triangle and stores as redSquare
+            var redSquare = draw.bitmap('img/baeng1.png'); // creates triangle and stores as redSquare
             redSquare.x = -25; // the x position for the enemy is set to -25 pixels
             redSquare.y = -25; // the y position for the enemy is set to -25 pixels
             enemy.addChild(redSquare); // add the red square to the enemy game item
@@ -95,7 +98,6 @@ var level01 = function (window) {
 
             enemy.velocityX = -1; // causes the enemy to move 1 pixel to the left on the x position
       
-            enemy.rotationalVelocity = 20; // rotating speed of the enemy is set to 25
 
             enemy.onPlayerCollision = function() { // function that will do something after the enemy collides with the player
                 console.log('The enemy has hit Halle'); // the console will print this message after the enemy hits the player
