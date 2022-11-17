@@ -29,7 +29,23 @@ function runProgram(){
     "D": 68,
   };
   // Game Item Objects
+  var walker1 = {
+    id: "#walker1",
+    x: positionX,
+    y: positionY,
+    width: $("#walker1").width(),
+    height: $("#walker1").height(),
 
+  };
+  var walker2 ={
+    id: "#walker2",
+    x: positionX2,
+    y: positionY2,
+    width: $("#walker2").width(),
+    height: $("#walker2").height(),
+
+
+  }
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
@@ -146,21 +162,21 @@ function runProgram(){
   };
   // 3rd challenge code.
     function collide(walker1, walker2){
-      walker1.leftX = walker1.positionX;
-      walker1.rightX = walker1.positionX + WALKER_WIDTH;
-      walker1.topY = walker1.positionY;
-      walker1.bottomY = walker1.positionY + WALKER_HEIGHT;
+      walker1.leftX = walker1.x;
+      walker1.rightX = walker1.x + WALKER_WIDTH;
+      walker1.topY = walker1.y;
+      walker1.bottomY = walker1.y + WALKER_HEIGHT;
 
-      walker2.leftX = walker2.positionX2;
-      walker2.rightX = walker2.positionX2 + WALKER2_WIDTH;
-      walker2.topY = walker2.positionY2;
-      walker2.bottomY = walker2.positionY2 + WALKER2_HEIGHT;
+      walker2.leftX = walker2.x;
+      walker2.rightX = walker2.x + WALKER2_WIDTH;
+      walker2.topY = walker2.y;
+      walker2.bottomY = walker2.y + WALKER2_HEIGHT;
 
      if (walker2.rightX > walker1.leftX
       && walker2.leftX < walker1.rightX &&
       walker2.bottomY > walker1.topY &&
       walker2.topY < walker1.bottomY){
-        console.log("collision");
+        WALKER1.css(background-color, "red");
      }
     }
 
