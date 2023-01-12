@@ -84,8 +84,6 @@ gbArr[GREEN] = keepInBounds(gbArr[BLUE] + gbArr[GREEN]);
 
 // CHALLENGE code goes below here
 // smudge indexes 8 and 9.
-function applyFilterAffect(filterFunction, ){
 
-}
 
 
