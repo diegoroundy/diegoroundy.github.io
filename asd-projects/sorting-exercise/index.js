@@ -14,9 +14,9 @@ The CSS ids you will work with are:
 ///////////////////////////////////////////////////////////////////////
 
 // TODO 2: Implement bubbleSort
-async function bubbleSort(array){
-    for (var i = 0;i < array.length-1; i++){
-        for (var j = 0;j < array.length-i-1; j++){
+async function bubbleSort(array){ // bubbleSort function is declared with array passing as a parameter.
+    for (var i = 0;i < array.length-1; i++){ //iterates over the array, adds 1 to i for all values greater than the last index 
+        for (var j = 0;j < array.length-i-1; j++){ // inner loop, 
             if(array[j].value > array[j +1].value){
                 swap(array, j, j+1);
                 updateCounter(bubbleCounter);
