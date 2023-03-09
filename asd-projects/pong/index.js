@@ -47,8 +47,10 @@ function runProgram(){
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
   var updatedScore1 = 0;
   var updatedScore2 = 0;
+  $('.playAgainButton').hide();
   //create an event listener for keyup
-  $(document).on('keyup', handleKeyUp); 
+  $(document).on('keyup', handleKeyUp);
+  $(document).on('click', playAgain);
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -71,10 +73,9 @@ function runProgram(){
     topBottomBoundsPaddles(paddleRight);
     topBottomBoundsPaddles(paddleLeft);
     rightLeftBoundsBall();
-    //console.log(doCollide(ball, paddleLeft));
-    //console.log(doCollide(ball, paddleRight));
-    console.log(ball.speedX, ball.speedY);
-    updateScore();
+    drawScore();
+    handleWinnerInstance();
+    playAgain();
     
   }
   /* 
@@ -130,14 +131,14 @@ function runProgram(){
     
     function rightLeftBoundsBall(){
       if (ball.x <= 0){
-        updatedScore1++;
+        updatedScore2++;
         ball.x = BOARD_WIDTH/2;
         ball.y = BOARD_HEIGHT/2;
         ball.speedX = (Math.random() > 0.5 ? -3 : 3);
         ball.speedY = (Math.random() > 0.5 ? -3 : 3);
       }
       if (ball.x >= BOARD_WIDTH - ball.w){
-        updatedScore2++;
+        updatedScore1++;
         ball.x = BOARD_WIDTH/2;
         ball.y = BOARD_HEIGHT/2;
         ball.speedX = (Math.random() > 0.5 ? -3 : 3);
@@ -196,18 +197,41 @@ function runProgram(){
     }
     // function that will handle what happens when the player scores
     // function that will display the score 
-    function updateScore(){
-      $('#player2Score').text(updatedScore1);
-      $('#player1Score').text(updatedScore2);
+    function drawScore(){
+      $('#player1Score').text(updatedScore1);
+      $('#player2Score').text(updatedScore2);
     }
 
-    //function that will handle winner instance 
+    //function that will handle winner instance
+    function handleWinnerInstance(){
+      if (updatedScore1 === 10){
+        endGame();
+        $('#playerWin').text("player 1 Wins!");
+      }
+      else if(updatedScore2 === 10){
+        endGame();
+        $('#playerWin').text("player 2 Wins!");
+      }
+
+    }
 
     // function that will display a play again button when winner is determined
+    
+    function playAgain(){
+      if (handleWinnerInstance()){
+        $('.playAgainButton').display();
+      }
+    }
+    
+    
     
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
+
+
+
+
 
     // turn off event handlers
     $(document).off();
