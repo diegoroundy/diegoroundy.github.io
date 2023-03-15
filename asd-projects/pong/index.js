@@ -19,7 +19,6 @@ function runProgram(){
     'UP': 38,
     'DOWN': 40
   };
-
   const BOARD_WIDTH = $('#board').width();
   const BOARD_HEIGHT= $('#board').height();
   // Game Item Objects
@@ -47,6 +46,7 @@ function runProgram(){
   var updatedScore1 = 0;
   var updatedScore2 = 0;
   $('.playAgainButton').hide();
+  $('#playerWin').hide();
   //create an event listener for keyup
   $(document).on('keyup', handleKeyUp);
 
@@ -57,23 +57,22 @@ function runProgram(){
   On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
   by calling this function and executing the code inside.
   */
- function newFrame(){
-  drawItem(ball);
-  drawItem(paddleLeft);
-  drawItem(paddleRight);
-  updatePosition(paddleLeft);
-  updatePosition(paddleRight);
-  updatePosition(ball);
-  topBottomBoundsBall(ball);
-  doCollide(ball, paddleLeft);
-  doCollide(ball, paddleRight);
-  ballDirection();
-  topBottomBoundsPaddles(paddleRight);
-  topBottomBoundsPaddles(paddleLeft);
-  rightLeftBoundsBall();
-  drawScore();
-  handleWinnerInstance();
-  buttonDisplay();
+  function newFrame(){
+    drawItem(ball);
+    drawItem(paddleLeft);
+    drawItem(paddleRight);
+    updatePosition(paddleLeft);
+    updatePosition(paddleRight);
+    updatePosition(ball);
+    topBottomBoundsBall(ball);
+    doCollide(ball, paddleLeft);
+    doCollide(ball, paddleRight);
+    ballDirection();
+    topBottomBoundsPaddles(paddleRight);
+    topBottomBoundsPaddles(paddleLeft);
+    rightLeftBoundsBall();
+    drawScore();
+    handleWinnerInstance();
   }
   /* 
   Called in response to events.
@@ -82,13 +81,13 @@ function runProgram(){
     if(event.which === KEY.W){
       paddleLeft.speedY = -6;
     }
-    if(event.which === KEY.S){
+    else if(event.which === KEY.S){
       paddleLeft.speedY = 6;
     }
-    if(event.which === KEY.UP){
+    else if(event.which === KEY.UP){
       paddleRight.speedY = -6;
     }
-    if(event.which === KEY.DOWN){
+    else if(event.which === KEY.DOWN){
       paddleRight.speedY = 6;
     }
   }
@@ -97,6 +96,7 @@ function runProgram(){
     paddleLeft.speedY = 0;
     paddleRight.speedY = 0;
   }
+  // function that handles button click
   $(".playAgainButton").click(function(){
     resetGame();
   });
@@ -206,12 +206,14 @@ function runProgram(){
   function handleWinnerInstance(){
     if (updatedScore1 === 10){
       endGame();
-      $('#playerWin').text("player 1 Wins!");
+      $('#playerWin').fadeIn(1000);
+      $('#playerWin').text("PLAYER 1 WINS!");
       $('.playAgainButton').show();
     }
     else if(updatedScore2 === 10){
       endGame();
-      $('#playerWin').text("player 2 Wins!");
+      $('#playerWin').fadeIn(1500);
+      $('#playerWin').text("PLAYER 2 WINS!");
       $('.playAgainButton').show();
     }
   }
