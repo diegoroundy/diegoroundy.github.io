@@ -45,6 +45,8 @@ function runProgram(){
   $(document).on('keydown', handleKeyDown);                           
   var updatedScore1 = 0;
   var updatedScore2 = 0;
+  var paddleLeftColor = 'rgb(0, 3, 161)';
+  var paddleRightColor = 'rgb(207, 8, 8)';
   $('.playAgainButton').hide();
   $('#playerWin').hide();
   //create an event listener for keyup
@@ -65,6 +67,7 @@ function runProgram(){
     updatePosition(paddleRight);
     updatePosition(ball);
     topBottomBoundsBall(ball);
+    ballColor();
     doCollide(ball, paddleLeft);
     doCollide(ball, paddleRight);
     ballDirection();
@@ -210,11 +213,21 @@ function runProgram(){
       $('#playerWin').text("PLAYER 1 WINS!");
       $('.playAgainButton').show();
     }
+  
     else if(updatedScore2 === 10){
       endGame();
       $('#playerWin').fadeIn(1500);
       $('#playerWin').text("PLAYER 2 WINS!");
       $('.playAgainButton').show();
+    }
+  }
+  // function that changes the color of the ball to the color of the paddle that it hit
+  function ballColor(){
+    if (doCollide(ball, paddleLeft)){
+      $('#ball').css('background-color', paddleLeftColor);
+    }
+    else if (doCollide(ball, paddleRight)){
+      $('#ball').css('background-color', paddleRightColor);
     }
   }
 

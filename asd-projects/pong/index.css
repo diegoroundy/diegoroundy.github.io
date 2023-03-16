@@ -12,7 +12,7 @@ body {
 }
 
 #paddleLeft {
-  background-color: teal;
+  background-color: rgb(0, 3, 161);
   width: 20px;
   height: 75px;
   position: absolute;
@@ -28,7 +28,7 @@ body {
   top: 190px;   /* Uncomment if you want to set a "starting" position */
 }
 #ball{
-  background-color: rgb(207, 8, 8);
+  background-color: rgb(255, 255, 255);
   width: 20px;
   height: 20px;
   position: absolute;
