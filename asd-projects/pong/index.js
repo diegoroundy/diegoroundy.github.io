@@ -223,7 +223,7 @@ function runProgram(){
       $('.playAgainButton').show();
     }
   }
-  // function that changes the color of the ball to the color of the paddle that it hit
+  // function that changes the color of the ball to a random color 
   function ballColor(){
     var randomColor = [Math.floor(Math.random()*256),Math.floor(Math.random()*256),Math.floor(Math.random()*256)];
     var rgbArrayToString = randomColor.toString();
