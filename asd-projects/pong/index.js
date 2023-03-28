@@ -45,8 +45,6 @@ function runProgram(){
   $(document).on('keydown', handleKeyDown);                           
   var updatedScore1 = 0;
   var updatedScore2 = 0;
-  var paddleLeftColor = 'rgb(0, 3, 161)';
-  var paddleRightColor = 'rgb(207, 8, 8)';
   $('.playAgainButton').hide();
   $('#playerWin').hide();
   //create an event listener for keyup
@@ -84,20 +82,24 @@ function runProgram(){
     if(event.which === KEY.W){
       paddleLeft.speedY = -6;
     }
-    else if(event.which === KEY.S){
+    if(event.which === KEY.S){
       paddleLeft.speedY = 6;
     }
-    else if(event.which === KEY.UP){
+    if(event.which === KEY.UP){
       paddleRight.speedY = -6;
     }
-    else if(event.which === KEY.DOWN){
+    if(event.which === KEY.DOWN){
       paddleRight.speedY = 6;
     }
   }
   // function that handles keyup
-  function handleKeyUp(){
-    paddleLeft.speedY = 0;
-    paddleRight.speedY = 0;
+  function handleKeyUp(event){
+    if(event.which === KEY.W || event.which === KEY.S){
+      paddleLeft.speedY = 0;
+    }
+    if(event.which === KEY.UP || event.which === KEY.DOWN){
+      paddleRight.speedY = 0;
+    }
   }
   // function that handles button click
   $(".playAgainButton").click(function(){
@@ -223,11 +225,13 @@ function runProgram(){
   }
   // function that changes the color of the ball to the color of the paddle that it hit
   function ballColor(){
+    var randomColor = [Math.floor(Math.random()*256),Math.floor(Math.random()*256),Math.floor(Math.random()*256)];
+    var rgbArrayToString = randomColor.toString();
     if (doCollide(ball, paddleLeft)){
-      $('#ball').css('background-color', paddleLeftColor);
+      $('#ball').css('background-color', 'rgb'+'('+rgbArrayToString+')');
     }
-    else if (doCollide(ball, paddleRight)){
-      $('#ball').css('background-color', paddleRightColor);
+    if (doCollide(ball, paddleRight)){
+      $('#ball').css('background-color', 'rgb'+'('+rgbArrayToString+')');
     }
   }
 
